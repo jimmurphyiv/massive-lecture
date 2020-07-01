@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require('express'),
-      ctrl = require('./controller'),
-      app = express();
+    ctrl = require('./controller'),
+    {SERVER_PORT, CONNECTION_STRING} = process.env,
+    app = express();
 
 app.use(express.json());
 
-app.listen(5555, () => console.log('Server running on 5555'));
+app.listen(SERVER_PORT, () => console.log('Server running on ${SERVER_PORT}'));
